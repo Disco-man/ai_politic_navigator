@@ -36,7 +36,7 @@ echo Starting Backend and Desktop App...
 echo ========================================
 echo.
 echo [Step 1/2] Starting Backend Server...
-start "Backend Server" cmd /k "cd backend && .\venv\Scripts\activate && python main.py"
+start "Backend Server" cmd /k "cd /d "%~dp0" && cd backend && .\venv\Scripts\activate && python main.py"
 echo Backend server started in new window!
 echo.
 timeout /t 3 /nobreak >nul
