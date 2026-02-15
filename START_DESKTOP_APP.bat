@@ -2,6 +2,9 @@
 title AI Political Navigator - Launcher
 color 0A
 
+REM Go to project root (folder where this .bat file is)
+cd /d "%~dp0"
+
 :MENU
 cls
 echo ========================================
