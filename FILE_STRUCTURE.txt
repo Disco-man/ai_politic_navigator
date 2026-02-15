@@ -1,0 +1,192 @@
+AI POLITICAL NAVIGATOR - FILE STRUCTURE
+========================================
+
+📁 C:\Users\Lenovo\Desktop\MatrixInfo\
+│
+├── 📄 README.md                     # Complete project documentation
+├── 📄 QUICK_START.md               # 5-minute setup guide
+├── 📄 DEPLOYMENT.md                # Production deployment guide
+├── 📄 ARCHITECTURE.md              # Technical architecture details
+├── 📄 PROJECT_SUMMARY.md           # Quick overview & summary
+├── 📄 FILE_STRUCTURE.txt           # This file - project structure
+├── 📄 .gitignore                   # Git ignore rules
+│
+├── 📁 backend/                     # BACKEND (FastAPI + Python)
+│   ├── 📄 main.py                 # ⭐ Main FastAPI application (500+ lines)
+│   ├── 📄 start.py                # Alternative entry point
+│   ├── 📄 requirements.txt        # Python dependencies
+│   ├── 📄 .env.example           # Environment variables template
+│   └── 📄 .gitignore             # Backend-specific ignores
+│
+└── 📁 frontend/                    # FRONTEND (React + Vite)
+    ├── 📄 package.json            # NPM dependencies & scripts
+    ├── 📄 vite.config.js          # Vite build configuration
+    ├── 📄 index.html              # HTML entry point
+    ├── 📄 .env.example           # Frontend environment template
+    ├── 📄 .eslintrc.json         # ESLint configuration
+    ├── 📄 .gitignore             # Frontend-specific ignores
+    │
+    ├── 📁 public/                 # Static Assets
+    │   └── 📄 globe.svg          # App icon
+    │
+    └── 📁 src/                    # Source Code
+        ├── 📄 main.jsx           # React entry point
+        ├── 📄 App.jsx            # Root component with routing
+        │
+        ├── 📁 components/         # REUSABLE COMPONENTS
+        │   ├── 📄 WorldMap.jsx           # ⭐ Interactive world map
+        │   ├── 📄 WorldMap.css
+        │   ├── 📄 ChatWidget.jsx         # ⭐ AI chat interface
+        │   ├── 📄 ChatWidget.css
+        │   ├── 📄 HighlightedText.jsx    # ⭐ Smart text highlighting
+        │   └── 📄 HighlightedText.css
+        │
+        ├── 📁 pages/              # PAGE COMPONENTS (Routes)
+        │   ├── 📄 WorldMapPage.jsx       # ⭐ Home page with map
+        │   ├── 📄 WorldMapPage.css
+        │   ├── 📄 CountryPage.jsx        # ⭐ Country detail page
+        │   ├── 📄 CountryPage.css
+        │   ├── 📄 FigurePage.jsx         # ⭐ Historical figure page
+        │   └── 📄 FigurePage.css
+        │
+        ├── 📁 services/           # API & STATE MANAGEMENT
+        │   ├── 📄 api.js                 # ⭐ API client (Axios)
+        │   └── 📄 store.js               # ⭐ Global state (Zustand)
+        │
+        ├── 📁 data/               # STATIC DATA
+        │   └── 📄 countries-geo.js       # Country codes & mappings
+        │
+        └── 📁 styles/             # GLOBAL STYLES
+            └── 📄 global.css             # ⭐ Global CSS variables & styles
+
+
+TOTAL FILES: 36
+TOTAL COMPONENTS: 6 major components
+TOTAL PAGES: 3 route pages
+LINES OF CODE: ~3,500+ lines
+
+
+KEY FILES TO UNDERSTAND:
+========================
+
+Backend:
+  📄 main.py                    # All API endpoints & AI logic
+
+Frontend:
+  📄 App.jsx                    # Routing setup
+  📄 WorldMapPage.jsx           # Home page
+  📄 CountryPage.jsx            # Country details
+  📄 ChatWidget.jsx             # AI chat
+  📄 HighlightedText.jsx        # Text highlighting
+  📄 services/api.js            # API calls
+  📄 services/store.js          # State management
+
+
+DEPENDENCIES:
+=============
+
+Backend (Python):
+  - fastapi==0.115.5
+  - uvicorn[standard]==0.32.0
+  - requests>=2.31.0
+  - python-dotenv>=1.0.1
+  - websockets>=12.0
+  - pydantic>=2.0.0
+
+Frontend (Node.js):
+  - react@^18.2.0
+  - react-dom@^18.2.0
+  - react-router-dom@^6.20.0
+  - react-simple-maps@^3.0.0
+  - axios@^1.6.2
+  - lucide-react@^0.294.0
+  - zustand@^4.4.7
+  - vite@^5.0.8
+
+
+FEATURES IMPLEMENTED:
+=====================
+
+✅ Interactive World Map
+   - Click any country to explore
+   - Zoom & pan functionality
+   - Hover tooltips
+
+✅ Country Detail Pages
+   - Foreign Policy events
+   - Domestic Policy events
+   - Economic events
+   - Social Issues
+   - Military & Security
+   - Environmental policies
+
+✅ Smart Text Highlighting
+   - Auto-detect countries (blue)
+   - Auto-detect figures (green)
+   - Click to navigate
+
+✅ AI Chat Assistant
+   - Context-aware responses
+   - Conversation history
+   - Floating widget
+
+✅ Historical Figures
+   - Biography pages
+   - Achievements
+   - Related countries
+
+✅ AI Content Generation
+   - Generate country data
+   - Analyze text
+   - Chat responses
+
+
+ROUTES:
+=======
+
+Frontend Routes:
+  /                              # World map homepage
+  /country/:countryId            # Country detail page
+  /figure/:figureId              # Historical figure page
+
+Backend API:
+  GET  /                         # Health check
+  GET  /api/countries            # List all countries
+  GET  /api/countries/:id        # Get country details
+  POST /api/generate-country-info/:name  # Generate AI content
+  GET  /api/figures/:id          # Get figure details
+  POST /api/chat                 # Chat with AI
+  POST /api/analyze-text         # Analyze text for entities
+  WS   /ws                       # WebSocket connection
+
+
+PORTS:
+======
+
+Development:
+  Backend:  http://localhost:8000
+  Frontend: http://localhost:3000
+
+API Docs:
+  Swagger:  http://localhost:8000/docs
+  ReDoc:    http://localhost:8000/redoc
+
+
+NEXT STEPS:
+===========
+
+1. Get Gemini API key from: https://makersuite.google.com/app/apikey
+2. Follow QUICK_START.md for setup (5 minutes)
+3. Initialize sample data from the UI
+4. Start exploring!
+
+For detailed instructions, see:
+  - QUICK_START.md    (Setup)
+  - README.md         (Full docs)
+  - DEPLOYMENT.md     (Production)
+  - ARCHITECTURE.md   (Technical)
+
+
+GENERATED: February 14, 2026
+PROJECT: AI Political Navigator
+VERSION: 1.0.0
