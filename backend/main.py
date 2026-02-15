@@ -22,12 +22,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- GEMINI AI CONFIGURATION ---
 GEMINI_API_KEY = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 GEMINI_URL = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent?key={GEMINI_API_KEY}"
 
-# --- MODELS ---
 class ChatMessage(BaseModel):
     role: str  # "user" or "assistant"
     content: str
@@ -101,7 +99,6 @@ class GeneratedQuizQuestion(BaseModel):
     options: List[str] = Field(..., min_length=4, max_length=4)
     correctIndex: int = Field(..., ge=0, le=3)
 
-# --- DATABASE (In-memory for demo) ---
 COUNTRIES_DB: Dict[str, Country] = {}
 FIGURES_DB: Dict[str, HistoricalFigure] = {}
 
@@ -320,7 +317,7 @@ IMPORTANT:
 def _build_quiz_context() -> str:
     """Build a compact summary of political data for Gemini to generate quiz questions."""
     parts = []
-    for c in list(COUNTRIES_DB.values())[:40]:  # limit to avoid token overflow
+    for c in list(COUNTRIES_DB.values())[:40]: 
         country_line = f"- {c.name} (capital: {c.capital}, government: {c.government_type})"
         events_line = "  Events: " + "; ".join(
             f"{e.title} ({e.date})" for e in (c.current_events or [])[:5]
@@ -463,7 +460,6 @@ Include 5-8 key political figures from the 21st century.
             detail=f"Could not generate data for {country_name}. Please try again later or check API key."
         )
 
-# --- WEBSOCKET FOR REAL-TIME UPDATES ---
 class ConnectionManager:
     def __init__(self):
         self.active_connections: List[WebSocket] = []
